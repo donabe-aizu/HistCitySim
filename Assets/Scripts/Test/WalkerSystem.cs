@@ -1,21 +1,30 @@
-﻿using Unity.Entities;
+﻿using Unity.Burst;
+using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
 public partial struct WalkerSystem : ISystem
 {
+    [BurstCompile] // BurstCompilerによる高速化
     public void OnUpdate(ref SystemState state)
     {
-        var dt = SystemAPI.Time.DeltaTime;
+        // Jobの発行処理
+        var job = new WalkerUpdateJob() 
+            { DeltaTime = (float)SystemAPI.Time.DeltaTime }; // 初期化
+        job.ScheduleParallel(); // Jobの予約
+    }
+}
 
-        foreach (var (walker, xform) in
-                 SystemAPI.Query<RefRO<Walker>,
-                     RefRW<LocalTransform>>())
-        {
-            var rot = quaternion.RotateY(walker.ValueRO.AngularSpeed * dt);
-            var fwd = math.mul(rot, xform.ValueRO.Forward());
-            xform.ValueRW.Position += fwd * walker.ValueRO.ForwardSpeed * dt;
-            xform.ValueRW.Rotation = quaternion.LookRotation(fwd, xform.ValueRO.Up());
-        }
+[BurstCompile] // BurstCompilerによる高速化
+partial struct WalkerUpdateJob : IJobEntity
+{
+    public float DeltaTime;
+
+    void Execute(in Walker walker, ref LocalTransform xform)
+    {
+        var rot = quaternion.RotateY(walker.AngularSpeed * DeltaTime);
+        var fwd = math.mul(rot, xform.Forward());
+        xform.Position += fwd * walker.ForwardSpeed * DeltaTime;
+        xform.Rotation = quaternion.LookRotation(fwd, xform.Up());
     }
 }
