@@ -1,0 +1,22 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/DonabeProject/UI/TestUI.uss?fileID=7433441132597879392&amp;guid=bd32ccd6f3951b7499111b6c32ab328c&amp;type=3#TestUI" />
+    <engine:VisualElement name="movie-card" class="MovieCard" style="align-items: stretch; position: absolute; top: 16px; left: 21px; align-self: center;">
+        <engine:VisualElement name="thumbnail" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/DonabeProject/Texture/donabe_icon.png?fileID=2800000&amp;guid=c00d1e74a0f856a4abdc71d5f04cefc7&amp;type=3#donabe_icon&quot;); background-color: rgb(0, 0, 0); background-repeat: no-repeat no-repeat; -unity-background-scale-mode: scale-to-fit; margin-left: 8px; margin-top: 8px; margin-right: 8px; width: 200px; height: 125px;">
+            <Bindings>
+                <engine:DataBinding property="style.backgroundImage" data-source-path="thumbnail" binding-mode="ToTarget" />
+            </Bindings>
+        </engine:VisualElement>
+        <engine:VisualElement style="flex-grow: 1; align-items: stretch; flex-direction: column; justify-content: flex-start; align-self: auto; align-content: flex-start; width: 200px; height: 75px;">
+            <engine:Label text="Label" name="movie-title" style="font-size: 20px; padding-left: 24px;">
+                <Bindings>
+                    <engine:DataBinding property="text" data-source-path="movieTitle" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:Label>
+            <engine:Label text="Label" name="channel-name" style="padding-left: 24px;">
+                <Bindings>
+                    <engine:DataBinding property="text" data-source-path="channelName" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:Label>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

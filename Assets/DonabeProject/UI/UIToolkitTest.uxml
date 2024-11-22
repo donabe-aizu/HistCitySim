@@ -1,0 +1,20 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/DonabeProject/UI/TestUI.uss?fileID=7433441132597879392&amp;guid=bd32ccd6f3951b7499111b6c32ab328c&amp;type=3#TestUI" />
+    <engine:VisualElement style="flex-grow: 1; flex-direction: row;">
+        <engine:VisualElement name="SideMenu" enabled="true" class="sidemenu" style="translate: 0 0; position: relative; background-color: rgb(229, 229, 229); width: 200px;">
+            <engine:Button text="Button" name="button-test1" class="sidemenuButton" style="align-items: stretch;" />
+            <engine:Button text="Button" name="button-test2" class="sidemenuButton" />
+            <engine:Button text="Button" name="button-test3" class="sidemenuButton" />
+        </engine:VisualElement>
+        <engine:VisualElement name="VisualElement" style="flex-grow: 1; width: 715px;">
+            <engine:VisualElement name="Hedder" style="height: 54px; background-color: rgb(202, 202, 202); align-items: center; justify-content: center; flex-direction: row;">
+                <engine:TextField placeholder-text="filler text" name="textfield-test1" style="align-items: stretch; margin-top: 8px; margin-bottom: 8px; width: 184px;" />
+                <engine:Button text="Button" name="send" />
+            </engine:VisualElement>
+            <engine:VisualElement style="flex-grow: 1; background-color: rgb(255, 255, 255); flex-direction: row; align-items: stretch;">
+                <engine:ListView item-template="project://database/Assets/DonabeProject/UI/UICard.uxml?fileID=9197481963319205126&amp;guid=b3f863b37c537994bb548c1f2ce8637d&amp;type=3#UICard" binding-source-selection-mode="AutoAssign" name="movie-card-list1" fixed-item-height="250" virtualization-method="FixedHeight" style="width: 50%; align-items: stretch;" />
+                <engine:ListView binding-source-selection-mode="AutoAssign" item-template="project://database/Assets/DonabeProject/UI/UICard.uxml?fileID=9197481963319205126&amp;guid=b3f863b37c537994bb548c1f2ce8637d&amp;type=3#UICard" name="movie-card-list2" fixed-item-height="250" style="width: 50%;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

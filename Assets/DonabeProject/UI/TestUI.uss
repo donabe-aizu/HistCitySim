@@ -1,0 +1,35 @@
+.sidemenuButton {
+    font-size: 20px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    transition-property: scale;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-cubic;
+}
+
+.sidemenuButton:hover {
+    scale: 1.1 1.1;
+    transition-property: scale;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-cubic;
+}
+
+.sidemenu {
+    flex-grow: 1;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    align-items: stretch;
+    align-content: flex-start;
+    width: 25%;
+    padding-left: 8px;
+    padding-right: 8px;
+    position: absolute;
+    opacity: 1;
+    overflow: visible;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.MovieCard {
+    flex-grow: 1;
+}
