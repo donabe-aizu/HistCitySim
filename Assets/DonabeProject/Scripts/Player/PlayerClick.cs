@@ -1,5 +1,4 @@
-﻿using System;
-using R3;
+﻿using R3;
 using UnityEngine;
 
 namespace DonabeProject.Player
@@ -15,15 +14,9 @@ namespace DonabeProject.Player
         void Update () {
             if (Input.GetMouseButtonDown(0)) //マウスがクリックされたら
             {
-                Ray ray = camera_object.ScreenPointToRay(Input.mousePosition); //マウスのポジションを取得してRayに代入
+                var ray = camera_object.ScreenPointToRay(Input.mousePosition); //マウスのポジションを取得してRayに代入
                 
                 clickSubject.OnNext((ray.origin,ray.direction));
-
-                if(Physics.Raycast(ray,out hit))  //マウスのポジションからRayを投げて何かに当たったらhitに入れる
-                {
-                    string objectName = hit.collider.gameObject.name; //オブジェクト名を取得して変数に入れる
-                    Debug.Log(objectName); //オブジェクト名をコンソールに表示
-                }
             }
         }
     }

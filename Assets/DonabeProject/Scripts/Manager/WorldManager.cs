@@ -1,9 +1,6 @@
-﻿using System;
-using DonabeProject.Player;
+﻿using DonabeProject.Player;
 using R3;
 using Unity.Entities;
-using Unity.Rendering;
-using Unity.Transforms;
 using UnityEngine;
 
 namespace Manager
@@ -21,8 +18,7 @@ namespace Manager
 
             _playerClick.OnClick.Subscribe(click =>
             {
-                ecsPlayerInput.inputOrigin = click.Item1;
-                ecsPlayerInput.inputDirection = click.Item2;
+                ecsPlayerInput.ClickRaycast(click.Item1,click.Item2);
             }).AddTo(this);
         }
     }

@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using Building;
+﻿using Building;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
-using Unity.Physics;
 using Unity.Transforms;
 using UnityEngine;
 
@@ -131,7 +129,7 @@ namespace Citizen
             // 目的地に到達したかどうかのチェック
             if (Vector3.Distance(citizenPos, destination) < 0.00001f)
             {
-                Debug.Log("目的地に到達しました！");
+                //Debug.Log("目的地に到達しました！");
                 return true;
             }
             else
