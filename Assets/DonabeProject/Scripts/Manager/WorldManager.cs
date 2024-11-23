@@ -1,4 +1,6 @@
 ﻿using System;
+using DonabeProject.Player;
+using R3;
 using Unity.Entities;
 using Unity.Rendering;
 using Unity.Transforms;
@@ -8,10 +10,20 @@ namespace Manager
 {
     public class WorldManager : MonoBehaviour
     {
+        [SerializeField]
+        private PlayerClick _playerClick;
+        private ECSPlayerInput ecsPlayerInput;
+        
         void Start()
         {
             var world = World.DefaultGameObjectInjectionWorld;
-            var entityManager = world.EntityManager;
+            ecsPlayerInput = world.GetExistingSystemManaged<ECSPlayerInput>();
+
+            _playerClick.OnClick.Subscribe(click =>
+            {
+                ecsPlayerInput.inputOrigin = click.Item1;
+                ecsPlayerInput.inputDirection = click.Item2;
+            }).AddTo(this);
         }
     }
 }
