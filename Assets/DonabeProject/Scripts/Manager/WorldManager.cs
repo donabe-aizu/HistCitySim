@@ -1,4 +1,5 @@
-﻿using Unity.Entities;
+﻿using System;
+using Unity.Entities;
 using Unity.Rendering;
 using Unity.Transforms;
 using UnityEngine;
@@ -9,7 +10,8 @@ namespace Manager
     {
         void Start()
         {
-            EntityManager entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
+            var world = World.DefaultGameObjectInjectionWorld;
+            var entityManager = world.EntityManager;
         }
     }
 }
