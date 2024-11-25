@@ -1,0 +1,16 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement style="flex-grow: 1; background-color: rgba(255, 255, 255, 0.57); top: auto; left: 115px; bottom: auto; align-items: stretch; align-self: flex-end; justify-content: space-evenly; position: absolute; height: 218px; width: 235px;">
+        <engine:VisualElement style="flex-grow: 1; flex-direction: row; justify-content: space-between; align-items: stretch; align-self: auto; align-content: flex-start;">
+            <engine:Label text="Name&#10;" name="Label" />
+            <engine:Label text="Label" name="name" style="-unity-text-align: upper-right; white-space: nowrap; align-self: flex-start; justify-content: flex-start; align-items: stretch; flex-direction: column;" />
+        </engine:VisualElement>
+        <engine:VisualElement style="flex-grow: 1; flex-direction: row; justify-content: space-between;">
+            <engine:Label text="pocketMoney" name="Label" />
+            <engine:Label text="Label" name="pocketMoney" style="-unity-text-align: upper-right; white-space: nowrap; align-self: flex-start; justify-content: flex-start; align-items: stretch; flex-direction: column;" />
+        </engine:VisualElement>
+        <engine:VisualElement style="flex-grow: 1; flex-direction: row; justify-content: space-between;">
+            <engine:Label text="appetite" name="Label" />
+            <engine:Label text="Label" name="appetite" style="-unity-text-align: upper-right; white-space: nowrap; align-self: flex-start; justify-content: flex-start; align-items: stretch; flex-direction: column;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

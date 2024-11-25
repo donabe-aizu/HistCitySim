@@ -5,6 +5,8 @@ namespace Citizen
 {
     public class CitizenAuthoring : MonoBehaviour
     {
+        [SerializeField] 
+        private string citizenName;
         [SerializeField]
         private int _pocketMoney;
         [SerializeField]
@@ -24,6 +26,7 @@ namespace Citizen
             {
                 var data = new CitizenBase()
                 {
+                    //citizenName = src.citizenName,
                     pocketMoney = src._pocketMoney,
                     appetite = src._appetite,
                     moveSpeed = src._moveSpeed,

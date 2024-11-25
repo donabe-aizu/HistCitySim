@@ -1,4 +1,5 @@
-﻿using Unity.Entities;
+﻿using System;
+using Unity.Entities;
 using UnityEngine;
 
 namespace Citizen
@@ -6,6 +7,7 @@ namespace Citizen
     [System.Serializable]
     public struct CitizenBase : IComponentData
     {
+        //public String citizenName;
         public int pocketMoney;
         public int appetite;
         public float moveSpeed;

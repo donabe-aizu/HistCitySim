@@ -1,4 +1,7 @@
-﻿using Unity.Burst;
+﻿using Citizen;
+using DonabeProject.UI;
+using R3;
+using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Physics;
@@ -12,8 +15,13 @@ namespace DonabeProject.Player
     [BurstCompile]
     public partial class ECSPlayerInput : SystemBase
     {
+        public Observable<CitizenInfoData> onShowInfo => showInfoSubject;
+        private Subject<CitizenInfoData> showInfoSubject = new Subject<CitizenInfoData>();
+        
         RaycastInput input;
         PhysicsWorldSingleton physics;
+        
+        ComponentLookup<CitizenBase> CitizenLookup;
         
         protected override void OnCreate()
         {
@@ -33,7 +41,7 @@ namespace DonabeProject.Player
 
         protected override void OnUpdate()
         {
-
+            CitizenLookup = SystemAPI.GetComponentLookup<CitizenBase>();
         }
 
         public void ClickRaycast(Vector3 inputOrigin, Vector3 inputDirection)
@@ -49,6 +57,11 @@ namespace DonabeProject.Player
             if (physics.CastRay(input, out var hit))
             {
                 var name = this.EntityManager.GetName(hit.Entity);
+                showInfoSubject.OnNext(new CitizenInfoData
+                {
+                    pocketMoney = CitizenLookup[hit.Entity].pocketMoney,
+                    appetite = CitizenLookup[hit.Entity].appetite
+                });
                 Debug.Log(name);
             }
         }
