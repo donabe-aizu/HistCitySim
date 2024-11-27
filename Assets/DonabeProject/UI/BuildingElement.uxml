@@ -1,8 +1,8 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <engine:VisualElement name="VisualElement" data-source="project://database/Assets/DonabeProject/UI/ScriptableObjects/Home.asset?fileID=11400000&amp;guid=0c7ab8487f4af7748b1da3a7caf7c630&amp;type=2#Home" style="background-color: rgb(255, 0, 0); padding-top: 0; margin-top: 8px; margin-right: 8px; margin-bottom: 8px; margin-left: 8px; justify-content: center; align-self: stretch; align-items: center;">
-        <engine:VisualElement name="thumbnail" style="background-color: rgb(6, 0, 255); width: 100%; height: 100%; max-width: 100px; min-width: 100px; max-height: 100px; min-height: 100px; -unity-background-scale-mode: scale-to-fit;">
+    <engine:VisualElement name="root" data-source="project://database/Assets/DonabeProject/UI/ScriptableObjects/Home.asset?fileID=11400000&amp;guid=0c7ab8487f4af7748b1da3a7caf7c630&amp;type=2#Home" style="background-color: rgb(255, 0, 0); padding-top: 0; margin-top: 8px; margin-right: 8px; margin-bottom: 8px; margin-left: 8px; justify-content: center; align-self: stretch; align-items: center;">
+        <engine:VisualElement name="thumbnail" data-source="project://database/Assets/DonabeProject/UI/ScriptableObjects/Shop.asset?fileID=11400000&amp;guid=cbd5dc66bb7ccb54ca8e57049bb013cd&amp;type=2#Shop" style="background-color: rgb(6, 0, 255); width: 100%; height: 100%; max-width: 100px; min-width: 100px; max-height: 100px; min-height: 100px; -unity-background-scale-mode: scale-to-fit;">
             <Bindings>
-                <engine:DataBinding property="style.backgroundImage" data-source-path="thumbnail" binding-mode="TwoWay" />
+                <engine:DataBinding property="style.backgroundImage" data-source-path="thumbnail" binding-mode="ToTarget" />
             </Bindings>
         </engine:VisualElement>
     </engine:VisualElement>

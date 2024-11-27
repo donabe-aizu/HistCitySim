@@ -563,8 +563,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1407753908}
   - component: {fileID: 1407753909}
+  - component: {fileID: 1407753910}
   m_Layer: 0
-  m_Name: CitizenManager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -598,6 +599,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerClick: {fileID: 6497047}
+--- !u!114 &1407753910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407753907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558dad38ed804258a7ebe2adcf641fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1531747520
 GameObject:
   m_ObjectHideFlags: 0
