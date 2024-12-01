@@ -8,7 +8,7 @@ namespace DonabeProject.Manager
         public static PlayerStatusHolder I;
         public bool isBlockClickRaycast;
         public NowPlayerMode PlayerMode;
-        public GameObject NowSelectConstructBuilding;
+        public int NowSelectConstructBuildingID;
         
         public PlayerStatusHolder()
         {

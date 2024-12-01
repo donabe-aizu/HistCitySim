@@ -1,7 +1,10 @@
-﻿using Citizen;
+﻿using Building;
+using Citizen;
+using DonabeProject.Manager;
 using DonabeProject.UI;
 using R3;
 using Unity.Burst;
+using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Physics;
@@ -21,9 +24,10 @@ namespace DonabeProject.Player
         RaycastInput input;
         PhysicsWorldSingleton physics;
         
-        ComponentLookup<CitizenBase> CitizenLookup;
-        
-        
+        private ComponentLookup<CitizenBase> CitizenLookup;
+        private ComponentLookup<PrefabEntityComponent> PrefabEntityLookup;
+        private ComponentLookup<BuildingBase> BuildingLookup;
+
         protected override void OnCreate()
         {
             var filter = new CollisionFilter()
@@ -43,6 +47,8 @@ namespace DonabeProject.Player
         protected override void OnUpdate()
         {
             CitizenLookup = SystemAPI.GetComponentLookup<CitizenBase>();
+            PrefabEntityLookup = SystemAPI.GetComponentLookup<PrefabEntityComponent>();
+            BuildingLookup = SystemAPI.GetComponentLookup<BuildingBase>();
         }
 
         public void ClickRaycast(Vector3 inputOrigin, Vector3 inputDirection)
@@ -67,6 +73,22 @@ namespace DonabeProject.Player
                         pocketMoney = CitizenLookup[hit.Entity].pocketMoney,
                         appetite = CitizenLookup[hit.Entity].appetite
                     });
+                }
+
+                if (name == "Plane")
+                {
+                    foreach (var buffer in SystemAPI.Query<DynamicBuffer<PrefabElement>>().WithAll<PrefabEntityComponent>())
+                    {
+                        for (int i = 0; i < buffer.Length; i++)
+                        {
+                            var entity = buffer[i].prefabEntity;
+                            if (PlayerStatusHolder.I.NowSelectConstructBuildingID == BuildingLookup[entity].BuildingID)
+                            {
+                                Debug.Log($"Construct: {PlayerStatusHolder.I.NowSelectConstructBuildingID}");
+                                EntityManager.Instantiate(entity);
+                            }
+                        }
+                    }
                 }
             }
         }

@@ -44,7 +44,7 @@ namespace DonabeProject.UI
         private void Clicked(ClickEvent evt, BuildingData data)
         {
             Debug.Log("Click: " + data.buildingName);
-            PlayerStatusHolder.I.NowSelectConstructBuilding = data.prefab;
+            PlayerStatusHolder.I.NowSelectConstructBuildingID = data.buildingID;
         }
     }
 }

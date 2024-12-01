@@ -6,6 +6,7 @@ namespace Building
     [System.Serializable]
     public struct BuildingBase : IComponentData
     {
+        public int BuildingID;
         public BuildingType buildingType;
         public int numberEmployee;
 
