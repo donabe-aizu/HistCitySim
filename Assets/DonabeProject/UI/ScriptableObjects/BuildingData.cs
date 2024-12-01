@@ -5,4 +5,5 @@ public class BuildingData : ScriptableObject
 {
     public Texture2D thumbnail;
     public string buildingName;
+    public GameObject prefab;
 }

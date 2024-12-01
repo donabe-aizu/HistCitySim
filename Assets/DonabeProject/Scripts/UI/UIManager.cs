@@ -4,7 +4,7 @@ using R3;
 using Unity.Entities;
 using UnityEngine;
 
-namespace DonabeProject.Scripts.UI
+namespace DonabeProject.UI
 {
     public class UIManager : MonoBehaviour
     {

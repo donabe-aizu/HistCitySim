@@ -23,6 +23,7 @@ namespace DonabeProject.Player
         
         ComponentLookup<CitizenBase> CitizenLookup;
         
+        
         protected override void OnCreate()
         {
             var filter = new CollisionFilter()

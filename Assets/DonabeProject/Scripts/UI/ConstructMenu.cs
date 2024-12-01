@@ -25,25 +25,26 @@ namespace DonabeProject.UI
                 var buildingTemplate = buildingElement.Instantiate();
                 buildingTemplate.Q<VisualElement>("thumbnail").dataSource = building;
                 root.Q<VisualElement>("Grid").contentContainer.Add(buildingTemplate);
-                buildingTemplate.RegisterCallback<ClickEvent>(Clicked);
+                buildingTemplate.RegisterCallback<ClickEvent, BuildingData>(Clicked,building);
             }
         }
         
         private void Enter(MouseOverEvent evt)
         {
-            Debug.Log("Enter: " + evt.currentTarget);
+            //Debug.Log("Enter: " + evt.currentTarget);
             PlayerStatusHolder.I.isBlockClickRaycast = true;
         }
 
         private void Exit(MouseOutEvent evt)
         {
-            Debug.Log("Exit: " + evt.currentTarget);
+            //Debug.Log("Exit: " + evt.currentTarget);
             PlayerStatusHolder.I.isBlockClickRaycast = false;
         }
 
-        private void Clicked(ClickEvent evt)
+        private void Clicked(ClickEvent evt, BuildingData data)
         {
-            Debug.Log("Click");
+            Debug.Log("Click: " + data.buildingName);
+            PlayerStatusHolder.I.NowSelectConstructBuilding = data.prefab;
         }
     }
 }
