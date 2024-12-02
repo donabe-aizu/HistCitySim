@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thumbnail: {fileID: 2800000, guid: d96bf4f5ebddbd345b21330dcbdea7fd, type: 3}
   buildingName: Shop
-  prefab: {fileID: 2781691443137816226, guid: dd2846c2c736616489df7350b1990d57, type: 3}
+  buildingID: 3

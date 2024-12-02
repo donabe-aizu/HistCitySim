@@ -9,6 +9,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Physics;
 using Unity.Physics.Systems;
+using Unity.Transforms;
 using UnityEngine;
 
 namespace DonabeProject.Player
@@ -57,7 +58,7 @@ namespace DonabeProject.Player
 
             input.Start = inputOrigin;
             
-            var distance = 100;
+            var distance = 1000;
             var goal = inputDirection * distance;
             input.End = goal + inputOrigin;
             
@@ -85,6 +86,8 @@ namespace DonabeProject.Player
                             if (PlayerStatusHolder.I.NowSelectConstructBuildingID == BuildingLookup[entity].BuildingID)
                             {
                                 Debug.Log($"Construct: {PlayerStatusHolder.I.NowSelectConstructBuildingID}");
+                                var buildingTransform = SystemAPI.GetComponentRW<LocalTransform>(entity);
+                                buildingTransform.ValueRW.Position = new float3(hit.Position.x, hit.Position.y + buildingTransform.ValueRW.Scale/2, hit.Position.z);
                                 EntityManager.Instantiate(entity);
                             }
                         }
